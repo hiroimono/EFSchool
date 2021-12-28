@@ -30,6 +30,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "S5CodeFirstEFRepeat", "S5Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFirstRepeat", "DatabaseFirstRepeat\DatabaseFirstRepeat.csproj", "{FA772F6F-32D6-460C-A099-51C815BA31F7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "S6CodeFirstWithExistingDb", "S6CodeFirstWithExistingDb", "{26962874-8EE1-4344-B7AD-31FC68168A0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFirstWithExistingDb", "DatabaseFirstWithExistingDb\DatabaseFirstWithExistingDb.csproj", "{202F9239-C1BD-48F4-AEFB-B3297D1248E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,10 @@ Global
 		{FA772F6F-32D6-460C-A099-51C815BA31F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA772F6F-32D6-460C-A099-51C815BA31F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA772F6F-32D6-460C-A099-51C815BA31F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202F9239-C1BD-48F4-AEFB-B3297D1248E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202F9239-C1BD-48F4-AEFB-B3297D1248E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202F9239-C1BD-48F4-AEFB-B3297D1248E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202F9239-C1BD-48F4-AEFB-B3297D1248E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +74,7 @@ Global
 		{73395134-1F56-4AFF-8F3B-117A7B1A6E7B} = {019D74B4-6A77-4913-BAC9-17A42A83C1B2}
 		{D103F622-47E3-4FEC-B77E-18C20387C66E} = {A235CA92-7CBB-4463-853F-D313394A9A2C}
 		{FA772F6F-32D6-460C-A099-51C815BA31F7} = {53E08029-D165-43E5-8BAE-A69D41236746}
+		{202F9239-C1BD-48F4-AEFB-B3297D1248E4} = {26962874-8EE1-4344-B7AD-31FC68168A0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3227D7AC-85D8-4DB6-AB0E-D7049D10BC14}
