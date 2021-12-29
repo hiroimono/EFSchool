@@ -4,330 +4,337 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EFSchoolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Album">
-          <Key>
-            <PropertyRef Name="AlbumId" />
-          </Key>
-          <Property Name="AlbumId" Type="int" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="160" Nullable="false" />
-          <Property Name="ArtistId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Artist">
-          <Key>
-            <PropertyRef Name="ArtistId" />
-          </Key>
-          <Property Name="ArtistId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="120" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="CustomerId" />
-          </Key>
-          <Property Name="CustomerId" Type="int" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Company" Type="varchar" MaxLength="80" />
-          <Property Name="Address" Type="varchar" MaxLength="70" />
-          <Property Name="City" Type="varchar" MaxLength="40" />
-          <Property Name="State" Type="varchar" MaxLength="40" />
-          <Property Name="Country" Type="varchar" MaxLength="40" />
-          <Property Name="PostalCode" Type="varchar" MaxLength="10" />
-          <Property Name="Phone" Type="varchar" MaxLength="24" />
-          <Property Name="Fax" Type="varchar" MaxLength="24" />
-          <Property Name="Email" Type="varchar" MaxLength="60" Nullable="false" />
-          <Property Name="SupportRepId" Type="int" />
-        </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="EmployeeId" />
-          </Key>
-          <Property Name="EmployeeId" Type="int" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="30" />
-          <Property Name="ReportsTo" Type="int" />
-          <Property Name="BirthDate" Type="datetime" />
-          <Property Name="HireDate" Type="datetime" />
-          <Property Name="Address" Type="varchar" MaxLength="70" />
-          <Property Name="City" Type="varchar" MaxLength="40" />
-          <Property Name="State" Type="varchar" MaxLength="40" />
-          <Property Name="Country" Type="varchar" MaxLength="40" />
-          <Property Name="PostalCode" Type="varchar" MaxLength="10" />
-          <Property Name="Phone" Type="varchar" MaxLength="24" />
-          <Property Name="Fax" Type="varchar" MaxLength="24" />
-          <Property Name="Email" Type="varchar" MaxLength="60" />
-        </EntityType>
-        <EntityType Name="Genre">
-          <Key>
-            <PropertyRef Name="GenreId" />
-          </Key>
-          <Property Name="GenreId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="120" />
-        </EntityType>
-        <EntityType Name="Invoice">
-          <Key>
-            <PropertyRef Name="InvoiceId" />
-          </Key>
-          <Property Name="InvoiceId" Type="int" Nullable="false" />
-          <Property Name="CustomerId" Type="int" Nullable="false" />
-          <Property Name="InvoiceDate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-          <Property Name="BillingAddress" Type="varchar" MaxLength="70" />
-          <Property Name="BillingCity" Type="varchar" MaxLength="40" />
-          <Property Name="BillingState" Type="varchar" MaxLength="40" />
-          <Property Name="BillingCountry" Type="varchar" MaxLength="40" />
-          <Property Name="BillingPostalCode" Type="varchar" MaxLength="10" />
-          <Property Name="Total" Type="numeric" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="InvoiceLine">
-          <Key>
-            <PropertyRef Name="InvoiceLineId" />
-          </Key>
-          <Property Name="InvoiceLineId" Type="int" Nullable="false" />
-          <Property Name="InvoiceId" Type="int" Nullable="false" />
-          <Property Name="TrackId" Type="int" Nullable="false" />
-          <Property Name="UnitPrice" Type="numeric" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="Quantity" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="MediaType">
-          <Key>
-            <PropertyRef Name="MediaTypeId" />
-          </Key>
-          <Property Name="MediaTypeId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="120" />
-        </EntityType>
-        <EntityType Name="Playlist">
-          <Key>
-            <PropertyRef Name="PlaylistId" />
-          </Key>
-          <Property Name="PlaylistId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="120" />
-        </EntityType>
-        <EntityType Name="PlaylistTrack">
-          <Key>
-            <PropertyRef Name="PlaylistId" />
-            <PropertyRef Name="TrackId" />
-          </Key>
-          <Property Name="PlaylistId" Type="int" Nullable="false" />
-          <Property Name="TrackId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="3" />
-        </EntityType>
-        <EntityType Name="Track">
-          <Key>
-            <PropertyRef Name="TrackId" />
-          </Key>
-          <Property Name="TrackId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="AlbumId" Type="int" />
-          <Property Name="MediaTypeId" Type="int" Nullable="false" />
-          <Property Name="GenreId" Type="int" />
-          <Property Name="Composer" Type="varchar" MaxLength="220" />
-          <Property Name="Milliseconds" Type="int" Nullable="false" />
-          <Property Name="Bytes" Type="int" />
-          <Property Name="UnitPrice" Type="numeric" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_AlbumArtistId">
-          <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
-          <End Role="Album" Type="Self.Album" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Artist">
-              <PropertyRef Name="ArtistId" />
-            </Principal>
-            <Dependent Role="Album">
-              <PropertyRef Name="ArtistId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CustomerSupportRepId">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeId" />
-            </Principal>
-            <Dependent Role="Customer">
-              <PropertyRef Name="SupportRepId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeReportsTo">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="EmployeeId" />
-            </Principal>
-            <Dependent Role="Employee1">
-              <PropertyRef Name="ReportsTo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceCustomerId">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="Invoice">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceLineInvoiceId">
-          <End Role="Invoice" Type="Self.Invoice" Multiplicity="1" />
-          <End Role="InvoiceLine" Type="Self.InvoiceLine" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Invoice">
-              <PropertyRef Name="InvoiceId" />
-            </Principal>
-            <Dependent Role="InvoiceLine">
-              <PropertyRef Name="InvoiceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_InvoiceLineTrackId">
-          <End Role="Track" Type="Self.Track" Multiplicity="1" />
-          <End Role="InvoiceLine" Type="Self.InvoiceLine" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Track">
-              <PropertyRef Name="TrackId" />
-            </Principal>
-            <Dependent Role="InvoiceLine">
-              <PropertyRef Name="TrackId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PlaylistTrackPlaylistId">
-          <End Role="Playlist" Type="Self.Playlist" Multiplicity="1" />
-          <End Role="PlaylistTrack" Type="Self.PlaylistTrack" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Playlist">
-              <PropertyRef Name="PlaylistId" />
-            </Principal>
-            <Dependent Role="PlaylistTrack">
-              <PropertyRef Name="PlaylistId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PlaylistTrackTrackId">
-          <End Role="Track" Type="Self.Track" Multiplicity="1" />
-          <End Role="PlaylistTrack" Type="Self.PlaylistTrack" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Track">
-              <PropertyRef Name="TrackId" />
-            </Principal>
-            <Dependent Role="PlaylistTrack">
-              <PropertyRef Name="TrackId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TrackAlbumId">
-          <End Role="Album" Type="Self.Album" Multiplicity="0..1" />
-          <End Role="Track" Type="Self.Track" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Album">
-              <PropertyRef Name="AlbumId" />
-            </Principal>
-            <Dependent Role="Track">
-              <PropertyRef Name="AlbumId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TrackGenreId">
-          <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
-          <End Role="Track" Type="Self.Track" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Genre">
-              <PropertyRef Name="GenreId" />
-            </Principal>
-            <Dependent Role="Track">
-              <PropertyRef Name="GenreId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TrackMediaTypeId">
-          <End Role="MediaType" Type="Self.MediaType" Multiplicity="1" />
-          <End Role="Track" Type="Self.Track" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MediaType">
-              <PropertyRef Name="MediaTypeId" />
-            </Principal>
-            <Dependent Role="Track">
-              <PropertyRef Name="MediaTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Function Name="AddProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-          <Parameter Name="Price" Type="decimal" Mode="In" />
-        </Function>
-        <EntityContainer Name="EFSchoolModelStoreContainer">
-          <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InvoiceLine" EntityType="Self.InvoiceLine" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MediaType" EntityType="Self.MediaType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Playlist" EntityType="Self.Playlist" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PlaylistTrack" EntityType="Self.PlaylistTrack" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Track" EntityType="Self.Track" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AlbumArtistId" Association="Self.FK_AlbumArtistId">
-            <End Role="Artist" EntitySet="Artist" />
-            <End Role="Album" EntitySet="Album" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CustomerSupportRepId" Association="Self.FK_CustomerSupportRepId">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Customer" EntitySet="Customer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeReportsTo" Association="Self.FK_EmployeeReportsTo">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Employee1" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceCustomerId" Association="Self.FK_InvoiceCustomerId">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Invoice" EntitySet="Invoice" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceLineInvoiceId" Association="Self.FK_InvoiceLineInvoiceId">
-            <End Role="Invoice" EntitySet="Invoice" />
-            <End Role="InvoiceLine" EntitySet="InvoiceLine" />
-          </AssociationSet>
-          <AssociationSet Name="FK_InvoiceLineTrackId" Association="Self.FK_InvoiceLineTrackId">
-            <End Role="Track" EntitySet="Track" />
-            <End Role="InvoiceLine" EntitySet="InvoiceLine" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PlaylistTrackPlaylistId" Association="Self.FK_PlaylistTrackPlaylistId">
-            <End Role="Playlist" EntitySet="Playlist" />
-            <End Role="PlaylistTrack" EntitySet="PlaylistTrack" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PlaylistTrackTrackId" Association="Self.FK_PlaylistTrackTrackId">
-            <End Role="Track" EntitySet="Track" />
-            <End Role="PlaylistTrack" EntitySet="PlaylistTrack" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TrackAlbumId" Association="Self.FK_TrackAlbumId">
-            <End Role="Album" EntitySet="Album" />
-            <End Role="Track" EntitySet="Track" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TrackGenreId" Association="Self.FK_TrackGenreId">
-            <End Role="Genre" EntitySet="Genre" />
-            <End Role="Track" EntitySet="Track" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TrackMediaTypeId" Association="Self.FK_TrackMediaTypeId">
-            <End Role="MediaType" EntitySet="MediaType" />
-            <End Role="Track" EntitySet="Track" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="EFSchoolModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EFSchoolModelStoreContainer">
+    <EntitySet Name="Albums" EntityType="EFSchoolModel.Store.Albums" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Artists" EntityType="EFSchoolModel.Store.Artists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="EFSchoolModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Genres" EntityType="EFSchoolModel.Store.Genres" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Invoices" EntityType="EFSchoolModel.Store.Invoices" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InvoiceLines" EntityType="EFSchoolModel.Store.InvoiceLines" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MediaTypes" EntityType="EFSchoolModel.Store.MediaTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Playlists" EntityType="EFSchoolModel.Store.Playlists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tracks" EntityType="EFSchoolModel.Store.Tracks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employees" EntityType="EFSchoolModel.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="EFSchoolModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="EFSchoolModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlaylistTrack" EntityType="EFSchoolModel.Store.PlaylistTrack" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AlbumArtistId" Association="EFSchoolModel.Store.FK_AlbumArtistId">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="Album" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrackAlbumId" Association="EFSchoolModel.Store.FK_TrackAlbumId">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Track" EntitySet="Tracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceCustomerId" Association="EFSchoolModel.Store.FK_InvoiceCustomerId">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrackGenreId" Association="EFSchoolModel.Store.FK_TrackGenreId">
+      <End Role="Genre" EntitySet="Genres" />
+      <End Role="Track" EntitySet="Tracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceLineInvoiceId" Association="EFSchoolModel.Store.FK_InvoiceLineInvoiceId">
+      <End Role="Invoice" EntitySet="Invoices" />
+      <End Role="InvoiceLine" EntitySet="InvoiceLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceLineTrackId" Association="EFSchoolModel.Store.FK_InvoiceLineTrackId">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="InvoiceLine" EntitySet="InvoiceLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrackMediaTypeId" Association="EFSchoolModel.Store.FK_TrackMediaTypeId">
+      <End Role="MediaType" EntitySet="MediaTypes" />
+      <End Role="Track" EntitySet="Tracks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistTrack_Playlist" Association="EFSchoolModel.Store.FK_PlaylistTrack_Playlist">
+      <End Role="Playlist" EntitySet="Playlists" />
+      <End Role="PlaylistTrack" EntitySet="PlaylistTrack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistTrack_Track" Association="EFSchoolModel.Store.FK_PlaylistTrack_Track">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="PlaylistTrack" EntitySet="PlaylistTrack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerSupportRepId" Association="EFSchoolModel.Store.FK_CustomerSupportRepId">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeReportsTo" Association="EFSchoolModel.Store.FK_EmployeeReportsTo">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee1" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Albums">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="AlbumId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="160" />
+    <Property Name="ArtistId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Artists">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Name="ArtistId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="true" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Company" Type="varchar" Nullable="true" MaxLength="80" />
+    <Property Name="Address" Type="varchar" Nullable="true" MaxLength="70" />
+    <Property Name="City" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="State" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="Country" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="PostalCode" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="Phone" Type="varchar" Nullable="true" MaxLength="24" />
+    <Property Name="Fax" Type="varchar" Nullable="true" MaxLength="24" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="SupportRepId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Genres">
+    <Key>
+      <PropertyRef Name="GenreId" />
+    </Key>
+    <Property Name="GenreId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="true" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="Invoices">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="InvoiceDate" Type="binary" StoreGeneratedPattern="Computed" Nullable="false" MaxLength="8" />
+    <Property Name="BillingAddress" Type="varchar" Nullable="true" MaxLength="70" />
+    <Property Name="BillingCity" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="BillingState" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="BillingCountry" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="BillingPostalCode" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="Total" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="InvoiceLines">
+    <Key>
+      <PropertyRef Name="InvoiceLineId" />
+    </Key>
+    <Property Name="InvoiceLineId" Type="int" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" Nullable="false" />
+    <Property Name="TrackId" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaTypes">
+    <Key>
+      <PropertyRef Name="MediaTypeId" />
+    </Key>
+    <Property Name="MediaTypeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="true" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="Playlists">
+    <Key>
+      <PropertyRef Name="PlaylistId" />
+    </Key>
+    <Property Name="PlaylistId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="true" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="Tracks">
+    <Key>
+      <PropertyRef Name="TrackId" />
+    </Key>
+    <Property Name="TrackId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="AlbumId" Type="int" Nullable="true" />
+    <Property Name="MediaTypeId" Type="int" Nullable="false" />
+    <Property Name="GenreId" Type="int" Nullable="true" />
+    <Property Name="Composer" Type="varchar" Nullable="true" MaxLength="220" />
+    <Property Name="Milliseconds" Type="int" Nullable="false" />
+    <Property Name="Bytes" Type="int" Nullable="true" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Title" Type="varchar" Nullable="true" MaxLength="30" />
+    <Property Name="ReportsTo" Type="int" Nullable="true" />
+    <Property Name="BirthDate" Type="datetime" Nullable="true" />
+    <Property Name="HireDate" Type="datetime" Nullable="true" />
+    <Property Name="Address" Type="varchar" Nullable="true" MaxLength="70" />
+    <Property Name="City" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="State" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="Country" Type="varchar" Nullable="true" MaxLength="40" />
+    <Property Name="PostalCode" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="Phone" Type="varchar" Nullable="true" MaxLength="24" />
+    <Property Name="Fax" Type="varchar" Nullable="true" MaxLength="24" />
+    <Property Name="Email" Type="varchar" Nullable="true" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Price" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PlaylistTrack">
+    <Key>
+      <PropertyRef Name="Playlists_PlaylistId" />
+      <PropertyRef Name="Tracks_TrackId" />
+    </Key>
+    <Property Name="Playlists_PlaylistId" Type="int" Nullable="false" />
+    <Property Name="Tracks_TrackId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AlbumArtistId">
+    <End Role="Artist" Type="EFSchoolModel.Store.Artists" Multiplicity="1" />
+    <End Role="Album" Type="EFSchoolModel.Store.Albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ArtistId" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="ArtistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrackAlbumId">
+    <End Role="Album" Type="EFSchoolModel.Store.Albums" Multiplicity="0..1" />
+    <End Role="Track" Type="EFSchoolModel.Store.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumId" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="AlbumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceCustomerId">
+    <End Role="Customer" Type="EFSchoolModel.Store.Customers" Multiplicity="1" />
+    <End Role="Invoice" Type="EFSchoolModel.Store.Invoices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrackGenreId">
+    <End Role="Genre" Type="EFSchoolModel.Store.Genres" Multiplicity="0..1" />
+    <End Role="Track" Type="EFSchoolModel.Store.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="GenreId" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="GenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceLineInvoiceId">
+    <End Role="Invoice" Type="EFSchoolModel.Store.Invoices" Multiplicity="1" />
+    <End Role="InvoiceLine" Type="EFSchoolModel.Store.InvoiceLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="InvoiceId" />
+      </Principal>
+      <Dependent Role="InvoiceLine">
+        <PropertyRef Name="InvoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceLineTrackId">
+    <End Role="Track" Type="EFSchoolModel.Store.Tracks" Multiplicity="1" />
+    <End Role="InvoiceLine" Type="EFSchoolModel.Store.InvoiceLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="TrackId" />
+      </Principal>
+      <Dependent Role="InvoiceLine">
+        <PropertyRef Name="TrackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrackMediaTypeId">
+    <End Role="MediaType" Type="EFSchoolModel.Store.MediaTypes" Multiplicity="1" />
+    <End Role="Track" Type="EFSchoolModel.Store.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="MediaTypeId" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="MediaTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerSupportRepId">
+    <End Role="Employee" Type="EFSchoolModel.Store.Employees" Multiplicity="0..1" />
+    <End Role="Customer" Type="EFSchoolModel.Store.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="SupportRepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeReportsTo">
+    <End Role="Employee" Type="EFSchoolModel.Store.Employees" Multiplicity="0..1" />
+    <End Role="Employee1" Type="EFSchoolModel.Store.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Employee1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistTrack_Playlist">
+    <End Role="Playlist" Type="EFSchoolModel.Store.Playlists" Multiplicity="1" />
+    <End Role="PlaylistTrack" Type="EFSchoolModel.Store.PlaylistTrack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Playlist">
+        <PropertyRef Name="PlaylistId" />
+      </Principal>
+      <Dependent Role="PlaylistTrack">
+        <PropertyRef Name="Playlists_PlaylistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistTrack_Track">
+    <End Role="PlaylistTrack" Type="EFSchoolModel.Store.PlaylistTrack" Multiplicity="*" />
+    <End Role="Track" Type="EFSchoolModel.Store.Tracks" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="TrackId" />
+      </Principal>
+      <Dependent Role="PlaylistTrack">
+        <PropertyRef Name="Tracks_TrackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EFSchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -584,6 +591,37 @@
             <Parameter Name="Name" Mode="In" Type="String" />
             <Parameter Name="Price" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="sysdiagrams" EntityType="EFSchoolModel.sysdiagram" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(EFSchoolModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(EFSchoolModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
         <EntityType Name="Employee">
           <Key>
@@ -639,157 +677,186 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Int32" />
-          <Property Name="Size" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EFSchoolModelStoreContainer" CdmEntityContainer="EFSchoolRepeatContext">
-          <EntitySetMapping Name="Albums">
-            <EntityTypeMapping TypeName="EFSchoolModel.Album">
-              <MappingFragment StoreEntitySet="Album">
-                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Artists">
-            <EntityTypeMapping TypeName="EFSchoolModel.Artist">
-              <MappingFragment StoreEntitySet="Artist">
-                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="EFSchoolModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Company" ColumnName="Company" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="SupportRepId" ColumnName="SupportRepId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Genres">
-            <EntityTypeMapping TypeName="EFSchoolModel.Genre">
-              <MappingFragment StoreEntitySet="Genre">
-                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Invoices">
-            <EntityTypeMapping TypeName="EFSchoolModel.Invoice">
-              <MappingFragment StoreEntitySet="Invoice">
-                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
-                <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
-                <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
-                <ScalarProperty Name="BillingState" ColumnName="BillingState" />
-                <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
-                <ScalarProperty Name="BillingPostalCode" ColumnName="BillingPostalCode" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InvoiceLines">
-            <EntityTypeMapping TypeName="EFSchoolModel.InvoiceLine">
-              <MappingFragment StoreEntitySet="InvoiceLine">
-                <ScalarProperty Name="InvoiceLineId" ColumnName="InvoiceLineId" />
-                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MediaTypes">
-            <EntityTypeMapping TypeName="EFSchoolModel.MediaType">
-              <MappingFragment StoreEntitySet="MediaType">
-                <ScalarProperty Name="MediaTypeId" ColumnName="MediaTypeId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Playlists">
-            <EntityTypeMapping TypeName="EFSchoolModel.Playlist">
-              <MappingFragment StoreEntitySet="Playlist">
-                <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tracks">
-            <EntityTypeMapping TypeName="EFSchoolModel.Track">
-              <MappingFragment StoreEntitySet="Track">
-                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
-                <ScalarProperty Name="MediaTypeId" ColumnName="MediaTypeId" />
-                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
-                <ScalarProperty Name="Composer" ColumnName="Composer" />
-                <ScalarProperty Name="Milliseconds" ColumnName="Milliseconds" />
-                <ScalarProperty Name="Bytes" ColumnName="Bytes" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="PlaylistTrack" TypeName="EFSchoolModel.PlaylistTrack" StoreEntitySet="PlaylistTrack">
-            <EndProperty Name="Playlist">
-              <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
-            </EndProperty>
-            <EndProperty Name="Track">
-              <ScalarProperty Name="TrackId" ColumnName="TrackId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="EFSchoolModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
-                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-                <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="EFSchoolModel.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="AddProduct" FunctionName="EFSchoolModel.Store.AddProduct" />
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFSchoolModelStoreContainer" CdmEntityContainer="EFSchoolRepeatContext">
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Album)">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Artist)">
+        <MappingFragment StoreEntitySet="Artists">
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Customer)">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SupportRepId" ColumnName="SupportRepId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Genre)">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Invoice)">
+        <MappingFragment StoreEntitySet="Invoices">
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+          <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+          <ScalarProperty Name="BillingState" ColumnName="BillingState" />
+          <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
+          <ScalarProperty Name="BillingPostalCode" ColumnName="BillingPostalCode" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceLines">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.InvoiceLine)">
+        <MappingFragment StoreEntitySet="InvoiceLines">
+          <ScalarProperty Name="InvoiceLineId" ColumnName="InvoiceLineId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.MediaType)">
+        <MappingFragment StoreEntitySet="MediaTypes">
+          <ScalarProperty Name="MediaTypeId" ColumnName="MediaTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Playlists">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Playlist)">
+        <MappingFragment StoreEntitySet="Playlists">
+          <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tracks">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Track)">
+        <MappingFragment StoreEntitySet="Tracks">
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="MediaTypeId" ColumnName="MediaTypeId" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="Composer" ColumnName="Composer" />
+          <ScalarProperty Name="Milliseconds" ColumnName="Milliseconds" />
+          <ScalarProperty Name="Bytes" ColumnName="Bytes" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(EFSchoolModel.sysdiagram)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PlaylistTrack" TypeName="EFSchoolModel.PlaylistTrack" StoreEntitySet="PlaylistTrack">
+      <EndProperty Name="Playlist">
+        <ScalarProperty Name="PlaylistId" ColumnName="Playlists_PlaylistId" />
+      </EndProperty>
+      <EndProperty Name="Track">
+        <ScalarProperty Name="TrackId" ColumnName="Tracks_TrackId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -803,7 +870,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

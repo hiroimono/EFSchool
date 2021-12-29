@@ -10,10 +10,12 @@ namespace DatabaseFirstRepeat.Context
 {
 	internal class EFSchoolContext : DbContext
 	{
-		public DbSet<Product> Products { get; set; }
-		public EFSchoolContext(): base("name=DefaultConn")
+		public EFSchoolContext() : base("name=DefaultConn")
 		{
-
 		}
+
+		public DbSet<Product> Products { get; set; }
+		public DbSet<Customer> Customers { get; set; }
+		public DbSet<Order> Orders { get; set; }
 	}
 }

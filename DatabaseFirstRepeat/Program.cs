@@ -12,7 +12,7 @@ namespace DatabaseFirstRepeat
 		{
 			Context.EFSchoolContext dbEFSchoolContext = new Context.EFSchoolContext();
 			var dataItemList = dbEFSchoolContext.Products.ToList();
-			Console.ReadLine();
+			dataItemList.ForEach(product => Console.WriteLine($"Products:\nName: {product.Name}, Amount: {product.Amount}"));
 		}
 	}
 }

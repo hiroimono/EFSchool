@@ -54,10 +54,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\EFSchoolContext.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Migrations\202112282150197_ProductAdd.cs" />
     <Compile Include="Migrations\202112282150197_ProductAdd.designer.cs">
       <DependentUpon>202112282150197_ProductAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112282314278_CustomerAdd.cs" />
+    <Compile Include="Migrations\202112282314278_CustomerAdd.designer.cs">
+      <DependentUpon>202112282314278_CustomerAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112282323052_OrderAdd.cs" />
+    <Compile Include="Migrations\202112282323052_OrderAdd.designer.cs">
+      <DependentUpon>202112282323052_OrderAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112282331009_CustomerAddColumnTelNo.cs" />
+    <Compile Include="Migrations\202112282331009_CustomerAddColumnTelNo.designer.cs">
+      <DependentUpon>202112282331009_CustomerAddColumnTelNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112282335305_Customer_ChangeColumnName_From_TelNo_To_TelNumber.cs" />
+    <Compile Include="Migrations\202112282335305_Customer_ChangeColumnName_From_TelNo_To_TelNumber.designer.cs">
+      <DependentUpon>202112282335305_Customer_ChangeColumnName_From_TelNo_To_TelNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112282340534_Customer_ChangeColumnName_From_TelNumber_To_TelNo.cs" />
+    <Compile Include="Migrations\202112282340534_Customer_ChangeColumnName_From_TelNumber_To_TelNo.designer.cs">
+      <DependentUpon>202112282340534_Customer_ChangeColumnName_From_TelNumber_To_TelNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112282348378_Customer_RemoveColumn_TelNo_TakeBackup.cs" />
+    <Compile Include="Migrations\202112282348378_Customer_RemoveColumn_TelNo_TakeBackup.designer.cs">
+      <DependentUpon>202112282348378_Customer_RemoveColumn_TelNo_TakeBackup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -70,6 +96,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202112282150197_ProductAdd.resx">
       <DependentUpon>202112282150197_ProductAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112282314278_CustomerAdd.resx">
+      <DependentUpon>202112282314278_CustomerAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112282323052_OrderAdd.resx">
+      <DependentUpon>202112282323052_OrderAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112282331009_CustomerAddColumnTelNo.resx">
+      <DependentUpon>202112282331009_CustomerAddColumnTelNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112282335305_Customer_ChangeColumnName_From_TelNo_To_TelNumber.resx">
+      <DependentUpon>202112282335305_Customer_ChangeColumnName_From_TelNo_To_TelNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112282340534_Customer_ChangeColumnName_From_TelNumber_To_TelNo.resx">
+      <DependentUpon>202112282340534_Customer_ChangeColumnName_From_TelNumber_To_TelNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112282348378_Customer_RemoveColumn_TelNo_TakeBackup.resx">
+      <DependentUpon>202112282348378_Customer_RemoveColumn_TelNo_TakeBackup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,6 +23,7 @@
                 <AssociationConnector Association="EFSchoolModel.FK_TrackMediaTypeId" ManuallyRouted="false" />
                 <AssociationConnector Association="EFSchoolModel.PlaylistTrack" ManuallyRouted="false" />
         <EntityTypeShape EntityType="EFSchoolModel.Product" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="EFSchoolModel.sysdiagram" Width="1.5" PointX="5.375" PointY="5.75" />
             </Diagram>
         </edmx:Diagrams>
     </edmx:Designer>
